@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/previsao.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <title>BPT - Blood Prediction Tool</title>
+    <link rel="icon" href="img/emblemaLARA.png">
+
+</head>
+
+<body>
+
+    <script>
+        function getToken() {
+            var token = localStorage.getItem('token');
+            if (token == null) {
+                window.location.href = '../pages/login.html';
+            }
+        }
+        getToken();
+
+        function singOut() {
+            if (typeof localStorage !== "undefined") {
+                localStorage.clear();
+                alert("Você foi desconectado com sucesso.");
+                window.location.href = "../pages/login.html"; // Substitua "/login" pela URL da página de login
+            } else {
+                console.error("Local storage não está disponível.");
+            }
+        }
+
+    </script>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <a href="../index.html"><img src="../img/emblemaLARA.png" alt="Logo">
+                </a>
+        </div>
+        <div class="navbar-container-login">
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <button href="../index.html" class="navbar-link" onclick="singOut()">Sign Out</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+
+        <h2>Cadastro Paciente</h2>
+
+        <form action="" id="cadastro">
+            <div>
+                <label for="nome">
+                    Nome:
+                </label>
+                <input type="text" name="nome" id="nome" value="" placeholder="" required>
+            </div>
+
+            <div>
+                <label for="cpf">
+                    cpf:
+                </label>
+                <input type="cpf" name="cpf" id="cpf" value="" placeholder="" required>
+            </div>
+            <div><label for="sex">
+                    Sexo:
+                </label>
+                <input type="sex" name="sex" id="sex" value="" placeholder="" required>
+            </div>
+            <div>
+                <label for="redo">
+                    Redo:
+                </label>
+                <input type="redo" name="redo" id="redo" value="" placeholder="" required>
+            </div>
+            <div>
+                <label for="cpb">
+                    CPB:
+                </label>
+                <input type="cpb" name="cpb" id="cpb" value="" placeholder="" required>
+            </div>
+            <div> <label for="age">
+                    idade:
+                </label>
+                <input type="age" name="age" id="age" value="" placeholder="" required>
+            </div>
+            <div><label for="bsa">
+                    BSA:
+                </label>
+                <input type="bsa" name="bsa" id="bsa" value="" placeholder="" required>
+            </div>
+            <div>
+                <label for="hb">
+                    HB:
+                </label>
+                <input type="hb" name="hb" id="hb" value="" placeholder="" required>
+            </div>
+
+            <button type="submit">Cadastrar</button>
+            <div id="response"></div>
+        </form>
+    </section>
+
+    <script src="../js/previsao.js"></script>
+    </section>
+    <footer class="bg-dark text-light text-center py-3">
+        <span>LARA.AI © 2024 | Desenvolvido por LARA.AI</span>
+    </footer>
+
+
+
+
+</body>
+
+</html>
