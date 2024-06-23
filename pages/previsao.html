@@ -31,20 +31,106 @@
     </nav>
     <section>
         <div class="container">
-            <div class="box" style="margin-bottom: 30px;">
-                <button onclick="select_bloco(1)">Cadastrar</button>
-                <button onclick="select_bloco(2)">Listar Pacientes por maior Probabilidade</button>
-                <button onclick="select_bloco(3)">Listar Paciente</button>
-                <button onclick="select_bloco(4)">Atualizar Paciente</button>
-                <button onclick="select_bloco(5)">Deletar Paciente</button>
-            </div>
             <div id="bloco_dinamico">
                 <div style="display: ruby-text-container">
-                    
+                    <div>
+                        <center>
+                            <h2>Cadastro Paciente</h2>
+                        </center> <br>
+                        <div id="cadastro_simpes">
+                            <form action="" id="cadastro"
+                                style="display:flex; justify-content: center; align-items: center;">
+                                <div> <label for="nome"> Nome: </label> <input type="text" name="nome" id="nome"
+                                        value="" placeholder="" required> </div>
+                                <div> <label for="cpf"> cpf: </label> <input type="cpf" name="cpf" id="cpf" value=""
+                                        placeholder="" required> </div>
+                                <div><label for="sex"> Sexo: </label> <input type="sex" name="sex" id="sex" value=""
+                                        placeholder="" required> </div>
+                                <div> <label for="redo"> Redo: </label> <input type="redo" name="redo" id="redo"
+                                        value="" placeholder="" required> </div>
+                                <div> <label for="cpb"> CPB: </label> <input type="cpb" name="cpb" id="cpb" value=""
+                                        placeholder="" required> </div>
+                                <div> <label for="age"> idade: </label> <input type="age" name="age" id="age" value=""
+                                        placeholder="" required> </div>
+                                <div><label for="bsa"> BSA: </label> <input type="bsa" name="bsa" id="bsa" value=""
+                                        placeholder="" required> </div>
+                                <div> <label for="hb"> HB: </label> <input type="hb" name="hb" id="hb" value=""
+                                        placeholder="" required> </div>
+                                <div id="response"></div>
+                            </form>
+                            <center>
+                            <div><button onclick="cadastrar()">Cadastrar</button></div>
+                            <div><button  onclick="atualizar()">atualizar</button></div>
+                            <div id="response"></div>
+                            <br>
+                            <br>
+                            <div id="response_previsao"></div>
+                            <br>
+                            <br>
+                            <div id="lime_image"></div>
+                            <div>
+                                
+                                    <h2>Upload de Arquivo CSV</h2> <br>
+                                </center>
+                                <div>
+                                    <form action="http://localhost:5000/paciente/uploadcsv" method="post"
+                                        enctype="multipart/form-data"
+                                        style="display:flex; justify-content: center; align-items: center;">
+                                        <div> <label for="file">Baixe o modelo de como os dados devem ser submetidos em
+                                                um arquivo CSV:</label><br></div> <a href="../modelo/pacientes.csv"
+                                            target="iframe_download">Clique para baixar</a>
+                                        <div> <label for="file">Selecione um arquivo CSV:</label><br></div>
+                                        <div><input type="file" id="file" name="file" accept=".csv"><br><br></div>
+                                        <div><button type="submit" value="Enviar Arquivo">Cadastrar csv</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+    <div class="container">
+    <div class="header">
+      <span>Cadastro de Funcionários</span>
+      <button onclick="openModal()" id="new">Incluir</i></button>
+    </div>
 
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Função</th>
+            <th>Salário</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-container">
+      <div class="modal">
+        <form>
+          <label for="m-nome">Nome</label>
+          <input id="m-nome" type="text" required />
+  
+          <label for="m-funcao">Função</label>
+          <input id="m-funcao" type="text" required />
+  
+          <label for="m-salario">Salário</label>
+          <input id="m-salario" type="number" required />
+          <button id="btnSalvar">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
     <script src="../js/previsao.js"></script>
     </section>
     <footer class="bg-dark text-light text-center py-3">

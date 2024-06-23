@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <link rel="stylesheet" href="../css/previsaolista.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span>Cadastro de Funcionários</span>
+      <button onclick="listar_pacinete_prob()" id="new">listar por maior Probabilidade</button>
+      <button onclick="listar_pacientes()" id="new">listar</button>
+      <button onclick="openModal()" id="new">Incluir</i></button>
+    </div>
+
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>nome</th>
+            <th>cpf</th>
+            <th>sex</th>
+            <th>redo</th>
+            <th>cpb</th>
+            <th>age</th>
+            <th>bsa</th>
+            <th>hb</th>
+            <th>prob</th>            
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+            <th class="acao">Mais</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-container">
+      <div class="modal">
+        <form id="pacienteForm">
+          <label for="m-nome">Nome</label>
+          <input id="nome" type="text" required />
+    
+          <label for="m-cpf">CPF</label>
+          <input id="cpf" type="text" required />
+    
+          <label for="m-sex">Sexo</label>
+          <select id="sex" required>
+            <option value="">Selecione...</option>
+            <option value="1">Masculino</option>
+            <option value="0">Feminino</option>
+          </select>
+          <br><br>
+          <label for="m-redo">Redo</label>
+          <select id="redo" required>
+            <option value="">Selecione...</option>
+            <option value="1">SIM</option>
+            <option value="0">NÃO</option>
+          </select>
+          <br><br>
+          <label for="m-cpb">CPB</label>
+          <select id="cpb" required>
+            <option value="">Selecione...</option>
+            <option value="1">SIM</option>
+            <option value="0">NÃO</option>
+          </select>
+          <br><br>
+          <label for="age">Idade</label>
+          <input id="age" type="number" required min="1" max="139" />
+    
+          <label for="bsa">BSA</label>
+          <input id="bsa" type="number" required min="0" />
+    
+          <label for="hb">HB</label>
+          <input id="hb" type="number" required min="0" />
+    
+          <button type="button" id="btnSalvar">Salvar</button>
+        </form>
+        <div id="response"></div>
+      </div>
+    </div>
+    
+
+  </div>
+  <script src="../js/previsaolista.js"></script>
+</body>
+
+</body>
+
+</html>
