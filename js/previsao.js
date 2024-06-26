@@ -140,3 +140,12 @@ function singOut() {
   }
 }
 
+
+
+function previsao() {
+  if (typeof localStorage !== "undefined") {
+      window.location.href = "../pages/previsao.html";
+  } else {
+      console.error("Local storage não está disponível.");
+  }
+}

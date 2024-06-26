@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/previsao.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <title>BPT - Blood Prediction Tool</title>
+    <link rel="icon" href="img/emblemaLARA.png">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <a href="../index.html"><img src="../img/emblemaLARA.png" alt="Logo" style="width: 200px;">
+                </a>
+        </div>
+        <div class="navbar-container-login">
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <button href="../pages/previsao.html" class="navbar-link" onclick="previsao()">previsao</button>
+                    <button href="../index.html" class="navbar-link" onclick="singOut()">Sign Out</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div class="container">
+            <div id="bloco_dinamico">
+                <div style="display: ruby-text-container">
+                    <div>
+                        <div>
+                            <form action="http://localhost:5000/paciente/uploadxlsx" method="post"
+                                enctype="multipart/form-data"
+                                style="display:flex; justify-content: center; align-items: center;">
+                                <div>
+                                    <h2>Upload de Arquivo xlsx</h2><br>
+                                    <label for="file">Baixe o modelo de como os dados devem ser submetidos em
+                                        um arquivo xlsx:</label><br>
+                                </div> <a href="../modelo/pacientes.xlsx" target="iframe_download">Clique para
+                                    baixar</a>
+                                <div> <label for="file">Selecione um arquivo xlsx:</label><br></div>
+                                <div><input type="file" id="file" name="file" accept=".xlsx"><br><br></div>
+                                <div><button type="submit" value="Enviar Arquivo">Cadastrar xlsx</button></div>
+                            </form>
+                            <br><br>
+                            <form action="http://localhost:5000/paciente/uploadcsv" method="post"
+                                enctype="multipart/form-data"
+                                style="display:flex; justify-content: center; align-items: center;">
+                                <div>
+                                    <h2>Upload de Arquivo CSV</h2><br>
+                                    <label for="file">Baixe o modelo de como os dados devem ser submetidos em
+                                        um arquivo CSV:</label><br>
+                                </div> <a href="../modelo/pacientes.csv" target="iframe_download">Clique para baixar</a>
+                                <div> <label for="file">Selecione um arquivo CSV:</label><br></div>
+                                <div><input type="file" id="file" name="file" accept=".csv"><br><br></div>
+                                <div><button type="submit" value="Enviar Arquivo">Cadastrar csv</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+
+        </div>
+        </div>
+    </section>
+    <script src="../js/previsao.js"></script>
+    </section>
+    <footer class="bg-dark text-light text-center py-3">
+        <span>LARA.AI © 2024 | Desenvolvido por LARA.AI</span>
+    </footer>
+
+
+
+
+</body>
+
+</html>
