@@ -48,6 +48,7 @@
                                 <div> <label for="file">Selecione um arquivo xlsx:</label><br></div>
                                 <div><input type="file" id="file" name="file" accept=".xlsx"><br><br></div>
                                 <div><button type="submit" value="Enviar Arquivo">Cadastrar xlsx</button></div>
+                                <div id="responsexlsx"></div>
                             </form>
                             <br><br>
                             <form action="http://localhost:5000/paciente/uploadcsv" method="post"
@@ -61,6 +62,7 @@
                                 <div> <label for="file">Selecione um arquivo CSV:</label><br></div>
                                 <div><input type="file" id="file" name="file" accept=".csv"><br><br></div>
                                 <div><button type="submit" value="Enviar Arquivo">Cadastrar csv</button></div>
+                                <div id="responsecsv"></div>
                             </form>
                         </div>
                     </div>
@@ -72,7 +74,7 @@
         </div>
         </div>
     </section>
-    <script src="../js/previsao.js"></script>
+    <script src="../js/cadastrafile.js"></script>
     </section>
     <footer class="bg-dark text-light text-center py-3">
         <span>LARA.AI © 2024 | Desenvolvido por LARA.AI</span>
