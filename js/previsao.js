@@ -4,7 +4,7 @@ var pacientes = [];
 
 async function listar_pacientes() {
   try {
-    const response = await fetch(`http://${ip}:5000/paciente/getallpacientes`);
+    const response = await fetch(`http://${ip}:5000/paciente/getproballpacientes`);
 
     if (!response.ok) {
       throw new Error(`API request failed with status: ${response.status}`);
@@ -247,6 +247,8 @@ function getToken() {
     window.location.href = '../pages/login.html';
   } else {
     listar_pacientes();
+    
+    
   }
 }
 getToken();
