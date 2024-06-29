@@ -36,18 +36,36 @@
                 <div style="display: ruby-text-container">
                     <div>
                         <div>
-
                             <br><br>
-                            <div id="csv" style="display:flex; justify-content: center; align-items: center;">
-                                <div>
-                                    <h2>Upload de Arquivo CSV</h2><br>
-                                    <label for="file">Baixe o modelo de como os dados devem ser submetidos em
-                                        um arquivo CSV:</label><br>
-                                </div> <a href="../modelo/pacientes.csv" target="iframe_download">Clique para baixar</a>
-                                <div> <label for="file">Selecione um arquivo CSV:</label><br></div>
-                                <div><input type="file" id="file" name="file" accept=".csv"><br><br></div>
-                                <div><button onclick="uploadcsv()" class="navbar-link">Cadastrar csv</button></div>
-                                <div id="responsecsv"></div>
+                            <div id="xlsx">
+                                <center>
+                                    <div>
+                                        <h2>Upload de Arquivo xlsx</h2><br>
+                                        <label for="file">Baixe o modelo de como os dados devem ser submetidos em
+                                            um arquivo xlsx (excel):</label><br>
+                                    </div> <a href="../modelo/pacientes.xlsx" target="iframe_download">Clique para
+                                        baixar</a>
+                                    <div> <label for="file">Selecione um arquivo xlsx:</label><br></div>
+                                    <div><input type="file" id="filexlsx" name="file" accept=".xlsx"><br><br></div>
+                                    <div><button onclick="uploadxlsx()" class="navbar-link">Cadastrar xlsx</button>
+                                    </div>
+                                    <div id="responsexlsx"></div>
+                                </center>
+                            </div>
+                            <br><br>
+                            <div id="csv">
+                                <center>
+                                    <div>
+                                        <h2>Upload de Arquivo CSV</h2><br>
+                                        <label for="file">Baixe o modelo de como os dados devem ser submetidos em
+                                            um arquivo CSV:</label><br>
+                                    </div> <a href="../modelo/pacientes.csv" target="iframe_download">Clique para
+                                        baixar</a>
+                                    <div> <label for="file">Selecione um arquivo CSV:</label><br></div>
+                                    <div><input type="file" id="fileCSV" name="file" accept=".csv"><br><br></div>
+                                    <div><button onclick="uploadcsv()" class="navbar-link">Cadastrar csv</button></div>
+                                    <div id="responsecsv"></div>
+                                </center>
                             </div>
                         </div>
                     </div>
@@ -64,9 +82,6 @@
     <footer class="bg-dark text-light text-center py-3">
         <span>LARA.AI © 2024 | Desenvolvido por LARA.AI</span>
     </footer>
-
-
-
 
 </body>
 

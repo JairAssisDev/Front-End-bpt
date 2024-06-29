@@ -1,6 +1,6 @@
 ip = "localhost"
 async function uploadcsv() {
-  const file = document.getElementById('file').files[0];;
+  const file = document.getElementById('fileCSV').files[0];;
   const formData = new FormData();
   formData.append('file', file)
 
@@ -9,11 +9,11 @@ async function uploadcsv() {
       method: 'POST',
       body: formData
     });
-  const status = await response.status; // Obter o status da resposta
-  const result = await response.json(); // Obter o JSON da resposta
+  const status = await response.status; 
+  const result = await response.json();
 
   const resultadoElement = document.getElementById('responsecsv');
-  if (resultadoElement) {  // Check if element exists
+  if (resultadoElement) { 
     if (status === 200) {
       resultadoElement.textContent = 'Arquivo enviado com sucesso!';
     } else {
@@ -23,6 +23,42 @@ async function uploadcsv() {
     console.error("Elemento 'resultado' não encontrado no DOM");
   }
 }
+
+async function uploadxlsx() {
+  const file = document.getElementById('filexlsx').files[0];;
+  const formData = new FormData();
+  formData.append('file', file)
+
+  const response = await fetch('http://localhost:5000/paciente/uploadxlsx',
+    {
+      method: 'POST',
+      body: formData
+    });
+  const status = await response[1]; 
+  const result = await response.json();
+
+  const resultadoElement = document.getElementById('responsexlsx');
+  if (resultadoElement) { 
+    if (status == 200) {
+      console.log(response[1])
+      console.log(response[0])
+      resultadoElement.textContent = result.naosalvos;
+
+    }else if(status == 207){
+      console.log(response[1])
+      console.log(response[0])
+      resultadoElement.textContent = response.naosalvos;
+    }
+     else {
+      console.log(result)
+      console.log(status)
+      resultadoElement.textContent = `Erro ao enviar o arquivo: ${result.mensage}`;
+    }
+  } else {
+    console.error("Elemento 'resultado' não encontrado no DOM");
+  }
+}
+
 
 function getToken() {
   var token = localStorage.getItem('token');

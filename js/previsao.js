@@ -4,6 +4,21 @@ var pacientes = [];
 
 async function listar_pacientes() {
   try {
+    const response = await fetch(`http://${ip}:5000/paciente/getallpacientes`);
+
+    if (!response.ok) {
+      throw new Error(`API request failed with status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    listar(data)
+
+  } catch (error) {
+    console.error('Error fetching patients:', error);
+  }
+}
+async function listar_pacinete_prob() {
+  try {
     const response = await fetch(`http://${ip}:5000/paciente/getproballpacientes`);
 
     if (!response.ok) {
@@ -11,71 +26,78 @@ async function listar_pacientes() {
     }
 
     const data = await response.json();
-    const tbody = document.querySelector('.divTable tbody');
-    tbody.innerHTML = '';  // Limpa a tabela antes de adicionar novos dados
-    pacientes = data[0].pacientes;  // Atualiza a lista de pacientes
-
-    data[0].pacientes.forEach((paciente, index) => {
-      const tableRow = document.createElement('tr');
-
-      const nomeCell = document.createElement('td');
-      nomeCell.textContent = paciente.nome;
-      tableRow.appendChild(nomeCell);
-
-      const cpfCell = document.createElement('td');
-      cpfCell.textContent = paciente.cpf;
-      tableRow.appendChild(cpfCell);
-
-      const sexCell = document.createElement('td');
-      sexCell.textContent = paciente.sex;
-      tableRow.appendChild(sexCell);
-
-      const redoCell = document.createElement('td');
-      redoCell.textContent = paciente.redo;
-      tableRow.appendChild(redoCell);
-
-      const cpbCell = document.createElement('td');
-      cpbCell.textContent = paciente.cpb;
-      tableRow.appendChild(cpbCell);
-
-      const ageCell = document.createElement('td');
-      ageCell.textContent = paciente.age;
-      tableRow.appendChild(ageCell);
-
-      const bsaCell = document.createElement('td');
-      bsaCell.textContent = paciente.bsa;
-      tableRow.appendChild(bsaCell);
-
-      const hbCell = document.createElement('td');
-      hbCell.textContent = paciente.hb;
-      tableRow.appendChild(hbCell);
-
-      const probCell = document.createElement('td');
-      probCell.textContent = paciente.probability.toFixed(3);
-      tableRow.appendChild(probCell);
-
-      const editarCell = document.createElement('td');
-      editarCell.innerHTML = `<center><button onclick="editar_paciente(${index})"><i class='bx bx-edit'></i></button></center>`;
-      tableRow.appendChild(editarCell);
-
-      const excluirCell = document.createElement('td');
-      excluirCell.innerHTML = `<center><button onclick="excluir_paciente(${index})"><i class='bx bx-trash'></i></button></center>`;
-      tableRow.appendChild(excluirCell);
-
-      const maisCell = document.createElement('td');
-      maisCell.innerHTML = `<center><button onclick="mostramaisItem(${index})"><i class='bx bx-image-alt'></i></button></center>`;
-      tableRow.appendChild(maisCell);
-
-
-      tbody.appendChild(tableRow);
-    });
-
-    console.log(pacientes);
+    listar(data)
 
   } catch (error) {
     console.error('Error fetching patients:', error);
   }
 }
+
+
+function listar(data){
+
+  const tbody = document.querySelector('.divTable tbody');
+  tbody.innerHTML = '';
+  pacientes = data[0].pacientes;  
+  pacientes.forEach((paciente, index) => {
+    const tableRow = document.createElement('tr');
+
+    const nomeCell = document.createElement('td');
+    nomeCell.textContent = paciente.nome;
+    tableRow.appendChild(nomeCell);
+
+    const cpfCell = document.createElement('td');
+    cpfCell.textContent = paciente.cpf;
+    tableRow.appendChild(cpfCell);
+
+    const sexCell = document.createElement('td');
+    sexCell.textContent = paciente.sex;
+    tableRow.appendChild(sexCell);
+
+    const redoCell = document.createElement('td');
+    redoCell.textContent = paciente.redo;
+    tableRow.appendChild(redoCell);
+
+    const cpbCell = document.createElement('td');
+    cpbCell.textContent = paciente.cpb;
+    tableRow.appendChild(cpbCell);
+
+    const ageCell = document.createElement('td');
+    ageCell.textContent = paciente.age;
+    tableRow.appendChild(ageCell);
+
+    const bsaCell = document.createElement('td');
+    bsaCell.textContent = paciente.bsa;
+    tableRow.appendChild(bsaCell);
+
+    const hbCell = document.createElement('td');
+    hbCell.textContent = paciente.hb;
+    tableRow.appendChild(hbCell);
+
+    const probCell = document.createElement('td');
+    probCell.textContent = paciente.probability.toFixed(3);
+    tableRow.appendChild(probCell);
+
+    const editarCell = document.createElement('td');
+    editarCell.innerHTML = `<center><button onclick="editar_paciente(${index})"><i class='bx bx-edit'></i></button></center>`;
+    tableRow.appendChild(editarCell);
+
+    const excluirCell = document.createElement('td');
+    excluirCell.innerHTML = `<center><button onclick="excluir_paciente(${index})"><i class='bx bx-trash'></i></button></center>`;
+    tableRow.appendChild(excluirCell);
+
+    const maisCell = document.createElement('td');
+    maisCell.innerHTML = `<center><button onclick="mostramaisItem(${index})"><i class='bx bx-image-alt'></i></button></center>`;
+    tableRow.appendChild(maisCell);
+
+
+    tbody.appendChild(tableRow);
+  });
+
+  console.log(pacientes);
+
+}
+
 
 function editar_paciente(id) {
   const paciente = pacientes[id];
@@ -172,6 +194,14 @@ function openModal(edit = false, index = 0) {
 
   modal.onclick = e => {
     if (e.target.className.indexOf('modal-container') !== -1) {
+      document.getElementById("nome").value='';
+      document.getElementById("cpf").value='';
+      document.getElementById("sex").value='';
+      document.getElementById("redo").value='';
+      document.getElementById("cpb").value='';
+      document.getElementById("age").value='';
+      document.getElementById("bsa").value='';
+      document.getElementById("hb").value='';
       modal.classList.remove('active');
     }
   };
