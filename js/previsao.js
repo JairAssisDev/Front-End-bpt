@@ -34,11 +34,11 @@ async function listar_pacinete_prob() {
 }
 
 
-function listar(data){
+function listar(data) {
 
   const tbody = document.querySelector('.divTable tbody');
   tbody.innerHTML = '';
-  pacientes = data[0].pacientes;  
+  pacientes = data[0].pacientes;
   pacientes.forEach((paciente, index) => {
     const tableRow = document.createElement('tr');
 
@@ -99,6 +99,7 @@ function listar(data){
 }
 
 
+
 function editar_paciente(id) {
   const paciente = pacientes[id];
   if (paciente) {
@@ -147,7 +148,7 @@ async function btnAtualizar() {
   };
 
   console.log(data);
-  const url = 'http://' + ip + ':5000/paciente/'+nome+"/"+cpf;
+  const url = 'http://' + ip + ':5000/paciente/' + nome + "/" + cpf;
 
   try {
     const response = await fetch(url, options);
@@ -188,20 +189,21 @@ async function excluir_paciente(id) {
 
 const modal = document.querySelector('.modal-container');
 const modal2 = document.querySelector('.modal-container2');
+const model3 = document.querySelector('.modal-container3');
 
 function openModal(edit = false, index = 0) {
   modal.classList.add('active');
 
   modal.onclick = e => {
     if (e.target.className.indexOf('modal-container') !== -1) {
-      document.getElementById("nome").value='';
-      document.getElementById("cpf").value='';
-      document.getElementById("sex").value='';
-      document.getElementById("redo").value='';
-      document.getElementById("cpb").value='';
-      document.getElementById("age").value='';
-      document.getElementById("bsa").value='';
-      document.getElementById("hb").value='';
+      document.getElementById("nome").value = '';
+      document.getElementById("cpf").value = '';
+      document.getElementById("sex").value = '';
+      document.getElementById("redo").value = '';
+      document.getElementById("cpb").value = '';
+      document.getElementById("age").value = '';
+      document.getElementById("bsa").value = '';
+      document.getElementById("hb").value = '';
       modal.classList.remove('active');
     }
   };
@@ -210,7 +212,7 @@ function openModal2(edit = false, index = 0) {
   modal2.classList.add('active');
 
   modal2.onclick = e => {
-    if (e.target.className.indexOf('modal-container') !== -1) {
+    if (e.target.className.indexOf('modal-container2') !== -1) {
       modal2.classList.remove('active');
     }
   };
@@ -277,8 +279,8 @@ function getToken() {
     window.location.href = '../pages/login.html';
   } else {
     listar_pacientes();
-    
-    
+
+
   }
 }
 getToken();
@@ -300,4 +302,32 @@ function cadastrafile() {
   }
 }
 
+async function mostramaisItem(id) {
+  const paciente = pacientes[id];
+  console.log(paciente)
+  try {
+    const response = await fetch(`http://${ip}:5000/paciente//img/${paciente.nome}/${paciente.cpf}`);
+    if (!response.ok) {
+      throw new Error(`API request failed with status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data.message[0].imagem)
+    document.getElementById('i-response').innerHTML = '<div id="lime_image"> <img id="prediction_image" src="" alt="Prediction Image"> </div>'
+    var predictionImageElement = document.getElementById("prediction_image");
+    predictionImageElement.src = 'data:image/jpeg;base64,' + data.message[0].imagem;
+    openModal3()
+  } catch (error) {
+    console.error('Error fetching patients:', error);
+  }
 
+}
+
+function openModal3(edit = false, index = 0) {
+  model3.classList.add('active');
+
+  model3.onclick = e => {
+    if (e.target.className.indexOf('modal-container3') !== -1) {
+      model3.classList.remove('active');
+    }
+  };
+}
