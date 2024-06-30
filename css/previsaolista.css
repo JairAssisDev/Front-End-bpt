@@ -303,6 +303,7 @@ tbody tr td.acao {
 }
 
 .modal {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -310,9 +311,7 @@ tbody tr td.acao {
   background-color: white;
   border-radius: 10px;
   width: 60%;
-  left:50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  height: 90%;
 }
 
 .modal label {
