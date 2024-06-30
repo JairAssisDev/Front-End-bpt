@@ -1,4 +1,4 @@
-# FRONT-END-LARA
+# PIBIC BPT (FRONT-END-LARA)
 
 ## Use o Docker Compose 
 ```sh
