@@ -288,15 +288,18 @@ tbody tr td.acao {
   align-items: center;
   justify-content: center;
 }
-
 .modal-container3 {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
   z-index: 999;
-  
+  align-items: center;
+  justify-content: center;
+
 }
 
 .modal {
@@ -306,7 +309,10 @@ tbody tr td.acao {
   padding: 40px;
   background-color: white;
   border-radius: 10px;
-  width: 80%;
+  width: 60%;
+  left:50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal label {
@@ -333,14 +339,12 @@ tbody tr td.acao {
   padding: 5px 10px; 
   width: 100%;
   border: none;
-  background-color: #28888fd5;
+  background-color: rgb(57, 57, 226);
   color: white;
 }
 
 .active {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .active .modal {
