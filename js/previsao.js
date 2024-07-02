@@ -311,11 +311,11 @@ async function mostramaisItem(id) {
       throw new Error(`API request failed with status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data.message[0].imagem)
-    document.getElementById('i-nomePaciente').innerText = 'gráfico da previsão do paciente:'+data.message[0].nome;
+    console.log(data.imagem)
+    document.getElementById('i-nomePaciente').innerText = 'gráfico da previsão do paciente:'+data.nome;
     document.getElementById('i-response').innerHTML = '<div id="lime_image"> <img id="prediction_image" src="" alt="Prediction Image"> </div>';
     var predictionImageElement = document.getElementById("prediction_image");
-    predictionImageElement.src = 'data:image/jpeg;base64,' + data.message[0].imagem;
+    predictionImageElement.src = 'data:image/jpeg;base64,' + data.imagem;
     openModal3()
   } catch (error) {
     console.error('Error fetching patients:', error);
