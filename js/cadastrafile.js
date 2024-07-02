@@ -25,7 +25,6 @@ async function uploadcsv() {
       document.getElementById('responsecsv').innerText = result.message;
       
     } else if (response.status === 207) {
-        alert("oi",response.status)
         document.getElementById('responsecsv').innerText = result.message;
         const patientData = result.naosalvos.map(patient => JSON.stringify(patient)).join('\n');
         document.getElementById('responsecsvnaosalvos').innerText = patientData;

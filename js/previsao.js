@@ -312,7 +312,8 @@ async function mostramaisItem(id) {
     }
     const data = await response.json();
     console.log(data.message[0].imagem)
-    document.getElementById('i-response').innerHTML = '<div id="lime_image"> <img id="prediction_image" src="" alt="Prediction Image"> </div>'
+    document.getElementById('i-nomePaciente').innerText = 'gráfico da previsão do paciente:'+data.message[0].nome;
+    document.getElementById('i-response').innerHTML = '<div id="lime_image"> <img id="prediction_image" src="" alt="Prediction Image"> </div>';
     var predictionImageElement = document.getElementById("prediction_image");
     predictionImageElement.src = 'data:image/jpeg;base64,' + data.message[0].imagem;
     openModal3()
