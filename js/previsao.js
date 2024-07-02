@@ -306,7 +306,7 @@ async function mostramaisItem(id) {
   const paciente = pacientes[id];
   console.log(paciente)
   try {
-    const response = await fetch(`http://${ip}:5000/paciente//img/${paciente.nome}/${paciente.cpf}`);
+    const response = await fetch(`http://${ip}:5000/paciente/img/${paciente.nome}/${paciente.cpf}`);
     if (!response.ok) {
       throw new Error(`API request failed with status: ${response.status}`);
     }
