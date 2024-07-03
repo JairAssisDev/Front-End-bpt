@@ -1,6 +1,6 @@
 const ip = 'localhost';
 
-var pacientes = [];
+
 
 async function listar_pacientes() {
   try {
@@ -34,12 +34,25 @@ async function listar_pacinete_prob() {
 }
 
 
-function listar(data) {
+let currentPage = 1;
+const itemsPerPage = 100;
+let pacientes = [];
 
+function listar(data) {
+  pacientes = data[0].pacientes;
+  currentPage = 1;
+  updateTable();
+}
+
+function updateTable() {
   const tbody = document.querySelector('.divTable tbody');
   tbody.innerHTML = '';
-  pacientes = data[0].pacientes;
-  pacientes.forEach((paciente, index) => {
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = pacientes.slice(startIndex, endIndex);
+
+  currentItems.forEach((paciente, index) => {
     const tableRow = document.createElement('tr');
 
     const nomeCell = document.createElement('td');
@@ -51,15 +64,15 @@ function listar(data) {
     tableRow.appendChild(cpfCell);
 
     const sexCell = document.createElement('td');
-    sexCell.textContent = paciente.sex;
+    sexCell.textContent = paciente.sex === 0 ? 'Feminino' : 'Masculino';
     tableRow.appendChild(sexCell);
 
     const redoCell = document.createElement('td');
-    redoCell.textContent = paciente.redo;
+    redoCell.textContent = paciente.redo === 0 ? 'Não' : 'Sim';
     tableRow.appendChild(redoCell);
 
     const cpbCell = document.createElement('td');
-    cpbCell.textContent = paciente.cpb;
+    cpbCell.textContent = paciente.cpb === 0 ? 'Não' : 'Sim';
     tableRow.appendChild(cpbCell);
 
     const ageCell = document.createElement('td');
@@ -79,24 +92,42 @@ function listar(data) {
     tableRow.appendChild(probCell);
 
     const editarCell = document.createElement('td');
-    editarCell.innerHTML = `<center><button onclick="editar_paciente(${index})"><i class='bx bx-edit'></i></button></center>`;
+    editarCell.innerHTML = `<center><button onclick="editar_paciente(${startIndex + index})"><i class='bx bx-edit'></i></button></center>`;
     tableRow.appendChild(editarCell);
 
     const excluirCell = document.createElement('td');
-    excluirCell.innerHTML = `<center><button onclick="excluir_paciente(${index})"><i class='bx bx-trash'></i></button></center>`;
+    excluirCell.innerHTML = `<center><button onclick="excluir_paciente(${startIndex + index})"><i class='bx bx-trash'></i></button></center>`;
     tableRow.appendChild(excluirCell);
 
     const maisCell = document.createElement('td');
-    maisCell.innerHTML = `<center><button onclick="mostramaisItem(${index})"><i class='bx bx-image-alt'></i></button></center>`;
+    maisCell.innerHTML = `<center><button onclick="mostramaisItem(${startIndex + index})"><i class='bx bx-image-alt'></i></button></center>`;
     tableRow.appendChild(maisCell);
-
 
     tbody.appendChild(tableRow);
   });
 
-  console.log(pacientes);
-
+  updatePaginationButtons();
 }
+
+function nextPage() {
+  if (currentPage * itemsPerPage < pacientes.length) {
+    currentPage++;
+    updateTable();
+  }
+}
+
+function prevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    updateTable();
+  }
+}
+
+function updatePaginationButtons() {
+  document.getElementById('currentPage').textContent = currentPage;
+  document.getElementById('totalPages').textContent = Math.ceil(pacientes.length / itemsPerPage);
+}
+
 
 
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/previsao.css">
+    <link rel="stylesheet" href="../css/previsaolista.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
@@ -40,39 +40,26 @@
                             <div id="xlsx">
                                 <center>
                                     <div>
-                                        <h2>Upload de Arquivo xlsx</h2><br>
-                                        <label for="file">Baixe o modelo de como os dados devem ser submetidos em
-                                            um arquivo xlsx (excel):</label><br>
-                                    </div> <a href="../modelo/pacientes.xlsx" target="iframe_download">Clique para
-                                        baixar</a>
-                                    <div> <label for="file">Selecione um arquivo xlsx:</label><br></div>
-                                    <div><input type="file" id="filexlsx" name="file" accept=".xlsx"><br><br></div>
-                                    <div id="loadresponsexlsx"></div>
+                                        <h2>Upload de Arquivo</h2><br>
+                                        <label for="file">Baixe o modelo de como os dados devem ser submetidos em um arquivo xlsx (excel):</label><br>
+                                    </div>
+                                    <a href="../modelo/pacientes.xlsx" target="iframe_download">Clique para baixar</a>
+                                    <div>
+                                        <label for="file">Selecione um arquivo (.csv, .xlsx, .xls):</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="file" id="fileupload" name="file" accept=".csv, .xlsx, .xls"><br><br>
+                                    </div>
+                                    <div id="loadresponse"></div>
                                     <br>
-                                    <div><button onclick="uploadxlsx()" class="navbar-link">Cadastrar xlsx </button>
+                                    <div>
+                                        <button onclick="uploadFile()" class="navbar-link">Cadastrar</button>
                                     </div>
                                     
-                                    <div id="responsexlsx"></div>
-                                    <div id="responsexlsxnaosalvos"></div>
+                                    <div id="response"></div>
+                                    <div id="responsenaosalvos"></div>
                                 </center>
-                            </div>
-                            <br><br>
-                            <div id="csv">
-                                <center>
-                                    <div>
-                                        <h2>Upload de Arquivo CSV</h2><br>
-                                        <label for="file">Baixe o modelo de como os dados devem ser submetidos em
-                                            um arquivo CSV:</label><br>
-                                    </div> <a href="../modelo/pacientes.csv" target="iframe_download">Clique para
-                                        baixar</a>
-                                    <div> <label for="file">Selecione um arquivo CSV:</label><br></div>
-                                    <div><input type="file" id="fileCSV" name="file" accept=".csv"><br><br></div>
-                                    <div id="loadresponsecsv"></div>
-                                    <br>
-                                    <div><button onclick="uploadcsv()" class="navbar-link">Cadastrar csv</button></div>
-                                    <div id="responsecsv"></div>
-                                    <div id="responsecsvnaosalvos"></div>
-                                </center>
+                                
                             </div>
                         </div>
                     </div>

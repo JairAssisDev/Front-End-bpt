@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../css/previsaolista.css">
+  <link rel="stylesheet" href="../css/previsao.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
   <title>BPT - Blood Prediction Tool</title>
   <link rel="icon" href="img/emblemaLARA.png">
-
 </head>
-
 <body>
-
   <nav class="navbar">
     <div class="navbar-container">
       <a href="#" class="navbar-logo">
-        <a href="../index.html"><img src="../img/emblemaLARA.png" alt="Logo" style="width: 200px;">
-        </a>
+        <a href="../index.html"><img src="../img/emblemaLARA.png" alt="Logo" style="width: 200px;"></a>
     </div>
     <div class="navbar-container-login">
       <ul class="navbar-menu">
@@ -37,9 +32,8 @@
         <span>Cadastro de Funcionários</span>
         <button onclick="listar_pacinete_prob()" id="new">listar por Probabilidade</button>
         <button onclick="listar_pacientes()" id="new">listar</button>
-        <button onclick="openModal()" id="new">Incluir</i></button>
+        <button onclick="openModal()" id="new">Incluir</button>
       </div>
-
       <div class="divTable">
         <table>
           <thead>
@@ -56,13 +50,18 @@
               <th class="acao">Editar</th>
               <th class="acao">Excluir</th>
               <th class="acao">Mais</th>
-
             </tr>
           </thead>
           <tbody>
           </tbody>
         </table>
       </div>
+      <!-- Controles de paginação -->
+     <center> <div class="pagination-controls">
+        <button onclick="prevPage()" class="navbar-link">Anterior</button>
+        <span>Página <span id="currentPage"></span> de <span id="totalPages"></span></span>
+        <button onclick="nextPage()" class="navbar-link">Próxima</button>
+      </div></center>
     </div>
   </section>
   <div class="modal-container">
@@ -72,10 +71,8 @@
         <br>
         <label for="m-nome">Nome</label>
         <input id="nome" type="text" required />
-
         <label for="m-cpf">CPF</label>
         <input id="cpf" type="text" required />
-
         <label for="m-sex">Sexo</label>
         <select id="sex" required>
           <option value="">Selecione...</option>
@@ -99,22 +96,17 @@
         <br><br>
         <label for="age">Idade</label>
         <input id="age" type="number" required min="1" max="139" />
-
         <label for="bsa">BSA</label>
         <input id="bsa" type="number" required min="0" />
-
         <label for="hb">HB</label>
         <input id="hb" type="number" required min="0" />
-
         <div>
           <button type="button" id="btnSalvar">Salvar</button>
         </div>
-
       </form>
       <div id="response"></div>
     </div>
   </div>
-
   <div class="modal-container2">
     <div class="modal">
       <form id="pacienteForm">
@@ -122,10 +114,8 @@
         <br>
         <label for="m-nome">Nome</label>
         <input id="a-nome" type="text" required />
-
         <label for="m-cpf">CPF</label>
         <input id="a-cpf" type="text" required />
-
         <label for="m-sex">Sexo</label>
         <select id="a-sex" required>
           <option value="">Selecione...</option>
@@ -149,25 +139,20 @@
         <br><br>
         <label for="age">Idade</label>
         <input id="a-age" type="number" required min="1" max="139" />
-
         <label for="bsa">BSA</label>
         <input id="a-bsa" type="number" required min="0" />
-
         <label for="hb">HB</label>
         <input id="a-hb" type="number" required min="0" />
-
         <div>
           <button type="button" id="btnAtualizar">Atualizar</button>
         </div>
-
       </form>
       <div id="a-response"></div>
     </div>
   </div>
-
   <div class="modal-container3">
     <div class="modal">
-      <H1><div id="i-nomePaciente"></div></H1>
+      <h1><div id="i-nomePaciente"></div></h1>
       <div id="i-response"></div>
     </div>
   </div>
@@ -175,10 +160,5 @@
   <footer class="bg-dark text-light text-center py-3">
     <span>LARA.AI © 2024 | Desenvolvido por LARA.AI</span>
   </footer>
-
-
-
-
 </body>
-
 </html>
