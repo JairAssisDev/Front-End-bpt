@@ -1,4 +1,4 @@
-ip="localhost"
+ip="192.168.0.104"
 async function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -17,7 +17,7 @@ async function handleFormSubmit(event) {
         body: JSON.stringify(data)
     };
     
-    const url = 'http://'+ip+':5000/user/auth';
+    const url = `http://${ip}:5000/user/auth`;
     
 
     try {

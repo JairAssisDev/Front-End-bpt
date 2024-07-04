@@ -1,4 +1,4 @@
-ip="localhost"
+ip="192.168.0.104"
 
 async function handleFormSubmit(event) {
   event.preventDefault();
@@ -18,7 +18,7 @@ async function handleFormSubmit(event) {
     body: JSON.stringify(data)
   };
 
-  const url = 'http://'+ip+':5000/user/create';
+  const url = `http://${ip}:5000/user/create`;
 
   var password = document.getElementById("password").value;
   var passwordConfirn = document.getElementById("passwordConfirn").value;

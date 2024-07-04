@@ -1,4 +1,4 @@
-ip = "localhost"
+ip = "192.168.0.104"
 
 async function uploadFile() {
   document.getElementById("loadresponse").innerHTML = '<svg viewBox="0 0 100 100"> <path d="M 50 96 a 46 46 0 0 1 0 -92 46 46 0 0 1 0 92" /> </svg>';
@@ -7,7 +7,7 @@ async function uploadFile() {
   formData.append('file', file);
 
   try {
-      const response = await fetch('http://localhost:5000/paciente/upload', {
+      const response = await fetch(`http://${ip}:5000/paciente/upload`, {
           method: 'POST',
           body: formData
       });
