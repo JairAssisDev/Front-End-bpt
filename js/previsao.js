@@ -1,4 +1,7 @@
 const ip = '192.168.0.107';
+let currentPage = 1;
+const itemsPerPage = 100;
+let pacientes = [];
 
 
 
@@ -11,7 +14,9 @@ async function listar_pacientes() {
     }
 
     const data = await response.json();
-    listar(data)
+    pacientes = data[0].pacientes;
+    currentPage = 1;
+    updateTable();
 
   } catch (error) {
     console.error('Error fetching patients:', error);
@@ -26,7 +31,9 @@ async function listar_pacinete_prob() {
     }
 
     const data = await response.json();
-    listar(data)
+    pacientes = data[0].pacientes;
+    currentPage = 1;
+    updateTable();
 
   } catch (error) {
     console.error('Error fetching patients:', error);
@@ -34,15 +41,6 @@ async function listar_pacinete_prob() {
 }
 
 
-let currentPage = 1;
-const itemsPerPage = 100;
-let pacientes = [];
-
-function listar(data) {
-  pacientes = data[0].pacientes;
-  currentPage = 1;
-  updateTable();
-}
 
 function updateTable() {
   const tbody = document.querySelector('.divTable tbody');
@@ -220,7 +218,7 @@ async function excluir_paciente(id) {
 
 const modal = document.querySelector('.modal-container');
 const modal2 = document.querySelector('.modal-container2');
-const model3 = document.querySelector('.modal-container3');
+const modal3 = document.querySelector('.modal-container3');
 
 function openModal(edit = false, index = 0) {
   modal.classList.add('active');
@@ -355,11 +353,11 @@ async function mostramaisItem(id) {
 }
 
 function openModal3(edit = false, index = 0) {
-  model3.classList.add('active');
+  modal3.classList.add('active');
 
-  model3.onclick = e => {
+  modal3.onclick = e => {
     if (e.target.className.indexOf('modal-container3') !== -1) {
-      model3.classList.remove('active');
+      modal3.classList.remove('active');
     }
   };
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -11,6 +12,7 @@
   <title>BPT - Blood Prediction Tool</title>
   <link rel="icon" href="img/emblemaLARA.png">
 </head>
+
 <body>
   <nav class="navbar">
     <div class="navbar-container">
@@ -20,7 +22,8 @@
     <div class="navbar-container-login">
       <ul class="navbar-menu">
         <li class="navbar-item">
-          <button href="../pages/cadastrafile.html" class="navbar-link" onclick="cadastrafile()">cadastra arquivo</button>
+          <button href="../pages/cadastrafile.html" class="navbar-link" onclick="cadastrafile()">cadastra
+            arquivo</button>
           <button href="../index.html" class="navbar-link" onclick="singOut()">Sign Out</button>
         </li>
       </ul>
@@ -30,6 +33,11 @@
     <div class="container">
       <div class="header">
         <span>Cadastro de Funcionários</span>
+        <div class="divSearch">
+          <label for="search">Buscar paciente</label>
+          <input type="search" id="search" oninput="buscarPaciente(this.value)" />
+          <button onclick="limparBusca()" id="new">Limpar busca</button>
+        </div>
         <button onclick="listar_pacinete_prob()" id="new">listar por Probabilidade</button>
         <button onclick="listar_pacientes()" id="new">listar</button>
         <button onclick="openModal()" id="new">Incluir</button>
@@ -57,11 +65,13 @@
         </table>
       </div>
       <!-- Controles de paginação -->
-     <center> <div class="pagination-controls">
-        <button onclick="prevPage()" class="navbar-link">Anterior</button>
-        <span>Página <span id="currentPage"></span> de <span id="totalPages"></span></span>
-        <button onclick="nextPage()" class="navbar-link">Próxima</button>
-      </div></center>
+      <center>
+        <div class="pagination-controls">
+          <button onclick="prevPage()" class="navbar-link">Anterior</button>
+          <span>Página <span id="currentPage"></span> de <span id="totalPages"></span></span>
+          <button onclick="nextPage()" class="navbar-link">Próxima</button>
+        </div>
+      </center>
     </div>
   </section>
   <div class="modal-container">
@@ -152,7 +162,9 @@
   </div>
   <div class="modal-container3">
     <div class="modal">
-      <h1><div id="i-nomePaciente"></div></h1>
+      <h1>
+        <div id="i-nomePaciente"></div>
+      </h1>
       <div id="i-response"></div>
     </div>
   </div>
@@ -161,4 +173,5 @@
     <span>LARA.AI © 2024 | Desenvolvido por LARA.AI</span>
   </footer>
 </body>
+
 </html>
