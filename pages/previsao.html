@@ -65,13 +65,7 @@
         </table>
       </div>
       <!-- Controles de paginação -->
-      <center>
-        <div class="pagination-controls">
-          <button onclick="prevPage()" class="navbar-link">Anterior</button>
-          <span>Página <span id="currentPage"></span> de <span id="totalPages"></span></span>
-          <button onclick="nextPage()" class="navbar-link">Próxima</button>
-        </div>
-      </center>
+     
     </div>
   </section>
   <div class="modal-container">
@@ -169,7 +163,16 @@
     </div>
   </div>
   <script src="../js/previsao.js"></script>
+
   <footer class="bg-dark text-light text-center py-3">
+    <center>
+      <div class="pagination-controls">
+        <button onclick="prevPage()" ><--</button> 
+        <span>Página <span id="currentPage"></span> de <span id="totalPages"></span></span>
+        <button onclick="nextPage()" >--></button>
+      </div>
+    </center><br>
+    
     <span>LARA.AI © 2024 | Desenvolvido por LARA.AI</span>
   </footer>
 </body>

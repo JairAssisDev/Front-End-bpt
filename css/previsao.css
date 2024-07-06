@@ -12,11 +12,13 @@ body {
   min-height: 100%;
 }
 
+
 footer {
-  margin-top: auto;
+  margin-top: auto; 
+
 }
 .navbar {
-  background-color: #28888f86; /* Azul claro */
+  background-color: #28888f86; 
   top: 0;
   left: 0;
   width: 100%;
