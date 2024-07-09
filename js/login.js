@@ -1,4 +1,4 @@
-ip="192.168.0.103"
+ip="10.36.20.30"
 async function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -32,9 +32,9 @@ async function handleFormSubmit(event) {
             }
       
             const responseData = await response.json();
-            console.log('Resposta:', responseData);
-            console.log('Resposta:', responseData.token);
-            localStorage.setItem('token', responseData.token)
+            console.log('Resposta:', responseData.content);
+            console.log('Resposta:', responseData.content.token);
+            localStorage.setItem('token', responseData.content.token)
             window.location.href = '../pages/previsao.html'
       
         } catch (error) {

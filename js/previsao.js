@@ -1,4 +1,4 @@
-const ip = '192.168.0.103';
+const ip = 'localhost';
 let currentPage = 1;
 const itemsPerPage = 100;
 let pacientes = [];
@@ -274,8 +274,7 @@ async function cadastrar() {
     },
     body: JSON.stringify(data)
   };
-
-  const url = `http://${ip}:5000/paciente`;
+  const url = `http://${ip}:5000/paciente/${token}`;
 
   try {
     const response = await fetch(url, options);
