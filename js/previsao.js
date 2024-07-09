@@ -1,4 +1,4 @@
-const ip = '10.36.20.30';
+const ip = 'localhost';
 let currentPage = 1;
 const itemsPerPage = 100;
 let pacientes = [];
@@ -256,6 +256,8 @@ async function cadastrar() {
   var age = parseFloat(document.getElementById("age").value);
   var bsa = parseFloat(document.getElementById("bsa").value);
   var hb = parseFloat(document.getElementById("hb").value);
+  var token = localStorage.getItem('token');
+  var token ={"token":token}
   var data = {
     "nome": nome,
     "cpf": cpf,
@@ -266,15 +268,18 @@ async function cadastrar() {
     "bsa": bsa,
     "hb": hb
   };
-
+  
+  request ={
+    data,token
+  }
   const options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(request)
   };
-  const url = `http://${ip}:5000/paciente/${token}`;
+  const url = `http://${ip}:5000/paciente`;
 
   try {
     const response = await fetch(url, options);
