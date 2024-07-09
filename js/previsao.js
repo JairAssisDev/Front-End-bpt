@@ -1,4 +1,4 @@
-const ip = 'localhost';
+const ip = '10.36.20.30';
 let currentPage = 1;
 const itemsPerPage = 100;
 let pacientes = [];
