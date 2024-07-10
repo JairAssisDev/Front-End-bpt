@@ -257,8 +257,7 @@ async function cadastrar() {
   var bsa = parseFloat(document.getElementById("bsa").value);
   var hb = parseFloat(document.getElementById("hb").value);
   var token = localStorage.getItem('token');
-  var token ={"token":token}
-  var data = {
+  var data = {"paciente":{
     "nome": nome,
     "cpf": cpf,
     "sex": sex,
@@ -267,17 +266,21 @@ async function cadastrar() {
     "age": age,
     "bsa": bsa,
     "hb": hb
+  },
+    "token":token
+
   };
   
-  request ={
-    data,token
-  }
+
+  alert(data)
+  console.log(data.paciente)
+  console.log(data.token)
   const options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(request)
+    body: JSON.stringify(data)
   };
   const url = `http://${ip}:5000/paciente`;
 
