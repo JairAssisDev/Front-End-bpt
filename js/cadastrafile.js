@@ -1,4 +1,4 @@
-const ip = 'localhost';
+const ip = '35.247.218.97';
 
 async function uploadFile() {
   document.getElementById("loadresponse").innerHTML = '<svg viewBox="0 0 100 100"> <path d="M 50 96 a 46 46 0 0 1 0 -92 46 46 0 0 1 0 92" /> </svg>';
@@ -11,6 +11,8 @@ async function uploadFile() {
           method: 'POST',
           body: formData
       });
+
+      console.log(response)
 
       if (!response.ok) {
           throw new Error(`Erro ao enviar o arquivo: ${response.statusText}`);
@@ -44,7 +46,7 @@ async function uploadFile() {
   } catch (error) {
       console.error('Erro na requisição:', error);
       document.getElementById("loadresponse").innerHTML = '';
-      document.getElementById('response').innerText = `Erro na requisição: ${error.message}`;
+      
   }
 }
 

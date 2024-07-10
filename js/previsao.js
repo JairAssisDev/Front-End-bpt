@@ -1,4 +1,4 @@
-const ip = 'localhost';
+const ip = '35.247.218.97';
 let currentPage = 1;
 const itemsPerPage = 100;
 let pacientes = [];
@@ -257,7 +257,7 @@ async function cadastrar() {
   var bsa = parseFloat(document.getElementById("bsa").value);
   var hb = parseFloat(document.getElementById("hb").value);
   var token = localStorage.getItem('token');
-  var data = {"paciente":{
+  var data = {
     "nome": nome,
     "cpf": cpf,
     "sex": sex,
@@ -266,15 +266,9 @@ async function cadastrar() {
     "age": age,
     "bsa": bsa,
     "hb": hb
-  },
-    "token":token
-
   };
   
 
-  alert(data)
-  console.log(data.paciente)
-  console.log(data.token)
   const options = {
     method: 'POST',
     headers: {

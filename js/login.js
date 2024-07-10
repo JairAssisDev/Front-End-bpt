@@ -1,4 +1,4 @@
-const ip = 'localhost';
+const ip = '35.247.218.97';
 async function handleFormSubmit(event) {
     event.preventDefault();
 
