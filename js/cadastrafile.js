@@ -7,15 +7,17 @@ async function uploadFile() {
   formData.append('file', file);
 
   try {
+      console.log('Enviando arquivo:', file);  // Log do arquivo a ser enviado
       const response = await fetch(`http://${ip}:5000/paciente/upload`, {
           method: 'POST',
           body: formData
       });
 
-      console.log(response)
+      console.log(response);
 
       if (!response.ok) {
-          throw new Error(`Erro ao enviar o arquivo: ${response.statusText}`);
+          const errorText = await response.text(); // Adicionando esta linha para capturar o texto do erro
+          throw new Error(`Erro ao enviar o arquivo: ${response.statusText} - ${errorText}`);
       }
 
       if (response.status === 200) {
@@ -46,7 +48,6 @@ async function uploadFile() {
   } catch (error) {
       console.error('Erro na requisição:', error);
       document.getElementById("loadresponse").innerHTML = '';
-      
   }
 }
 

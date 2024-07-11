@@ -177,7 +177,7 @@ async function btnAtualizar() {
   };
 
   console.log(data);
-  const url = 'http://' + ip + ':5000/paciente/' + nome + "/" + cpf;
+  const url = `http://${ip}:5000/paciente/update/${cpf}`;
 
   try {
     const response = await fetch(url, options);
@@ -203,7 +203,7 @@ async function excluir_paciente(id) {
   const paciente = pacientes[id];
   if (paciente) {
     try {
-      const response = await fetch(`http://${ip}:5000/paciente/${paciente.nome}/${paciente.cpf}`, { method: 'DELETE' });
+      const response = await fetch(`http://${ip}:5000/paciente/delete/${paciente.cpf}`, { method: 'DELETE' });
       if (response.ok) {
         console.log('Paciente excluído com sucesso');
         listar_pacientes();
@@ -336,7 +336,7 @@ async function mostramaisItem(id) {
   const paciente = pacientes[id];
   console.log(paciente)
   try {
-    const response = await fetch(`http://${ip}:5000/paciente/img/${paciente.nome}/${paciente.cpf}`);
+    const response = await fetch(`http://${ip}:5000/paciente/img/${paciente.cpf}`);
     if (!response.ok) {
       throw new Error(`API request failed with status: ${response.status}`);
     }
