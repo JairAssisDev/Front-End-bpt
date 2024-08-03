@@ -1,4 +1,4 @@
-const ip = '35.247.218.97';
+const ip = '35.199.124.249';
 
 async function uploadFile() {
   document.getElementById("loadresponse").innerHTML = '<svg viewBox="0 0 100 100"> <path d="M 50 96 a 46 46 0 0 1 0 -92 46 46 0 0 1 0 92" /> </svg>';
