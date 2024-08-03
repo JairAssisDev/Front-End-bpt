@@ -1,4 +1,4 @@
-const ip = '35.247.218.97';
+const ip = '35.199.124.249';
 let currentPage = 1;
 const itemsPerPage = 100;
 let pacientes = [];
